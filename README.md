@@ -1,2 +1,2 @@
-# printf
-Repository printf created
+# My_printf
+- My printf function implementation
