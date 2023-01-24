@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_specifier - finds the format func
+ * get_specifier - a fucntion that finds the format func
  * @s: the format string
  *
  * Return: the number of bytes printed
@@ -39,7 +39,7 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 }
 
 /**
- * get_print_func - finds the format func
+ * get_print_func - a fucntion that finds the format func
  * @s: the format string
  * @ap: argument pointer
  * @params: the parameters struct
@@ -56,7 +56,7 @@ int get_print_func(char *s, va_list ap, params_t *params)
 }
 
 /**
- * get_flag - finds the flag func
+ * get_flag - a function that finds the flag func
  * @s: the format string
  * @params: the parameters struct
  *
@@ -88,7 +88,7 @@ int get_flag(char *s, params_t *params)
 }
 
 /**
- * get_modifier - finds the modifier func
+ * get_modifier - a fucntion that finds the modifier func
  * @s: the format string
  * @params: the parameters struct
  *
@@ -111,7 +111,7 @@ int get_modifier(char *s, params_t *params)
 }
 
 /**
- * get_width - gets the width from the format string
+ * get_width - a fucntion that gets the width from the format string
  * @s: the format string
  * @params: the parameters struct
  * @ap: the argument pointer
