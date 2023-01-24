@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * convert - converter function, a clone of itoa
+ * convert - a function that converts, a clone of itoa
  * @num: number
  * @base: base
  * @flags: argument flags
@@ -11,10 +11,10 @@
  */
 char *convert(long int num, int base, int flags, params_t *params)
 {
-	static char *array;
+	static char *arrays;
 	static char buffer[50];
 	char sign = 0;
-	char *ptr;
+	char *pointer;
 	unsigned long n = num;
 	(void)params;
 
@@ -24,18 +24,18 @@ char *convert(long int num, int base, int flags, params_t *params)
 		sign = '-';
 
 	}
-	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
-	ptr = &buffer[49];
-	*ptr = '\0';
+	arrays = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	pointer = &buffer[49];
+	*pointer = '\0';
 
 	do	{
-		*--ptr = array[n % base];
+		*--pointer = arrays[n % base];
 		n /= base;
 	} while (n != 0);
 
 	if (sign)
-		*--ptr = sign;
-	return (ptr);
+		*--pointer = sign;
+	return (pointer);
 }
 
 /**
@@ -71,13 +71,13 @@ int print_unsigned(va_list ap, params_t *params)
 int print_address(va_list ap, params_t *params)
 {
 	unsigned long int n = va_arg(ap, unsigned long int);
-	char *str;
+	char *string;
 
 	if (!n)
 		return (_puts("(nil)"));
 
-	str = convert(n, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
-	*--str = 'x';
-	*--str = '0';
-	return (print_number(str, params));
+	string = convert(n, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
+	*--string = 'x';
+	*--string = '0';
+	return (print_number(string, params));
 }
