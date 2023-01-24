@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_hex - prints unsigned hex numbers in lowercase
+ * print_hex - a function that prints unsigned hex numbers in lowercase
  * @ap: the argument pointer
  * @params: the parameters struct
  *
@@ -31,7 +31,7 @@ int print_hex(va_list ap, params_t *params)
 }
 
 /**
- * print_HEX - prints unsigned hex numbers in uppercase
+ * print_HEX - a function that prints unsigned hex numbers in uppercase
  * @ap: the argument pointer
  * @params: the parameters struct
  *
