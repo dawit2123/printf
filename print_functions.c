@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_char - prints character
+ * print_char - a function that prints character
  * @ap: argument pointer
  * @params: the parameters struct
  *
@@ -22,7 +22,7 @@ int print_char(va_list ap, params_t *params)
 }
 
 /**
- * print_int - prints integer
+ * print_int - a function that prints integer
  * @ap: argument pointer
  * @params: the parameters struct
  *
@@ -51,7 +51,7 @@ int print_int(va_list ap, params_t *params)
 int print_string(va_list ap, params_t *params)
 {
 	char *str = va_arg(ap, char *), pad_char = ' ';
-	unsigned int pad = 0, sum = 0, i = 0, j;
+	unsigned int pad = 0, result = 0, i = 0, j;
 
 	(void)params;
 	switch ((int)(!str))
@@ -66,21 +66,21 @@ int print_string(va_list ap, params_t *params)
 	{
 		if (params->precision != UINT_MAX)
 			for (i = 0; i < pad; i++)
-				sum += _putchar(*str++);
+				result += _putchar(*str++);
 		else
-			sum += _puts(str);
+			result += _puts(str);
 	}
 	while (j++ < params->width)
-		sum += _putchar(pad_char);
+		result += _putchar(pad_char);
 	if (!params->minus_flag)
 	{
 		if (params->precision != UINT_MAX)
 			for (i = 0; i < pad; i++)
-				sum += _putchar(*str++);
+				result += _putchar(*str++);
 		else
-			sum += _puts(str);
+			result += _puts(str);
 	}
-	return (sum);
+	return (result);
 }
 
 /**
@@ -108,7 +108,7 @@ int print_S(va_list ap, params_t *params)
 {
 	char *str = va_arg(ap, char *);
 	char *hex;
-	int sum = 0;
+	int result = 0;
 
 	if ((int)(!str))
 		return (_puts(NULL_STRING));
@@ -116,17 +116,17 @@ int print_S(va_list ap, params_t *params)
 	{
 		if ((*str > 0 && *str < 32) || *str >= 127)
 		{
-			sum += _putchar('\\');
-			sum += _putchar('x');
+			result += _putchar('\\');
+			result += _putchar('x');
 			hex = convert(*str, 16, 0, params);
 			if (!hex[1])
-				sum += _putchar('0');
-			sum += _puts(hex);
+				result += _putchar('0');
+			result += _puts(hex);
 		}
 		else
 		{
-			sum += _putchar(*str);
+			result += _putchar(*str);
 		}
 	}
-	return (sum);
+	return (result);
 }
