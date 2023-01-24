@@ -1,2 +1,2 @@
 # printf
-Repository printf created.
+Repository printf created
